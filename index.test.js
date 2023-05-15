@@ -1,23 +1,7 @@
 const {forEach, map} = require('./index.js');
 const assert = require('node:assert');
 
-const test = (desc, fn) => {
-    console.log('');
-    console.log('-------', desc, '-------');
-    try {
-        fn();
-        console.log('Success ->',desc);
-    } catch(err) {
-        console.log('ERROR --->', desc);
-        console.log(err.message);
-    }
-    console.log('----------------------------------');
-    console.log('');
-
-    
-};
-
-test('forEach function', () => {
+it('forEach function', () => {
     let sum = 0;
     forEach([1,2,3], (value) => {
         sum += value;
@@ -26,7 +10,7 @@ test('forEach function', () => {
     assert.strictEqual(sum, 6, 'the sum should be 6');
 })
 
-test('map function', () => {
+it('map function', () => {
     const result = map([1,2,3], (value) => {
         return value * 2;
     });
