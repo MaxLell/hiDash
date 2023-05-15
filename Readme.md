@@ -2,5 +2,5 @@ The purpose of this exercise project is to get familiar with TDD in javascript. 
 - `_.forEach()`
 - `_.map()`
 
-First the functions are implemented and later the test code is written in a seperate file.
+First the functions are implemented in the `index.js` file and then the manual test code is implemented in the `index.test.js` file. The tests are built in a manual way (this is not recommended for a production or serious setting). I only did this to get familiar with the TDD process, without the having the fuzz of setting up a test framework.
 
