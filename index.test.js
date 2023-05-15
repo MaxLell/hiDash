@@ -1,6 +1,8 @@
 const {forEach, map} = require('./index.js');
+const assert = require('node:assert');
 
 const test = (desc, fn) => {
+    console.log('');
     console.log('-------', desc, '-------');
     try {
         fn();
@@ -9,6 +11,9 @@ const test = (desc, fn) => {
         console.log('ERROR --->', desc);
         console.log(err.message);
     }
+    console.log('----------------------------------');
+    console.log('');
+
     
 };
 
@@ -18,30 +23,16 @@ test('forEach function', () => {
         sum += value;
     });
 
-    if (sum !== 6) {
-        throw new Error('expected 6 for the summation of the array');
-    }
+    assert.strictEqual(sum, 6, 'the sum should be 6');
 })
 
 test('map function', () => {
     const result = map([1,2,3], (value) => {
         return value * 2;
-    })
-    
-    let index = 0;
-    let compareValue = 2;
-    if (result[index] !== compareValue) {
-        throw new Error(`I wanted ${compareValue} but got ${result[index]}`);
-    }
-    index = 1;
-    compareValue = 4;
-    if (result[index] !== compareValue) {
-        throw new Error(`I wanted ${compareValue} but got ${result[index]}`);
-    }
-    index = 2;
-    compareValue = 6;
-    if (result[index] !== compareValue) {
-        throw new Error(`I wanted ${compareValue} but got ${result[index]}`);
-    }
+    });
+
+    assert.strictEqual(result[0], 2);
+    assert.strictEqual(result[1], 4);
+    assert.strictEqual(result[2], 6);
 });
 
